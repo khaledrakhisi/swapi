@@ -1,0 +1,60 @@
+/* Color Palette */
+$primaryColor: #2483f0;
+$secondaryColor: #00a36e;
+
+$bg: $primaryColor 0% 0% no-repeat padding-box;
+$card-bgc: #f0f0f3;
+$dark-bg: #0d455d;
+$text-color: #000000;
+
+/* ****Font family**** */
+$fontFamily: "Roboto", Arial, Helvetica, sans-serif;
+
+//Body font sizes
+$fontSizeBodySmall: 12px;
+$lineHeightBodySmall: 16px;
+$fontSizeNormal: 14px;
+$fontSizeBodyMedium: 16px;
+$lineHeightBodyMedium: 24px;
+$fontSizeBodyLarge: 35px;
+$lineHeightBodyLarge: 35px;
+//Headline font sizes
+$fontSizeHeadlineSmall: 12px;
+$fontSizeHeadlineMedium: 25px;
+$fontSizeHeadlineLarge: 37px;
+//Display font sizes
+$fontSizeDisplaySmall: 64px;
+//helper font sizes
+$fontSizeTableStatus: 9px;
+
+/* ****Shadows**** */
+$mainBoxShadow: 0 1px 3px 0 rgba(37, 39, 49, 0.1);
+$secondBoxShadow: 0px 5px 5px #00000029;
+
+/* ****Border radius**** */
+$smallBorderRadius: 4px; //for buttons
+$mediumBorderRadius: 12px; //for boxes
+$largeBorderRadius: 24px; //for tables and main section in tablet and mobile.
+
+/* ****Spacing **** */
+$extraSmallSpacing: 4px;
+$smallSpacing: 8px;
+$mediumSpacing: 12px;
+$largeSpacing: 24px;
+$extraLargeSpacing: 30px;
+
+/* **** Device width **** */
+//This design is mobile first
+$mobile-width: 576px;
+$tablet-width: 768px;
+$desktop-width: 992px;
+$largeDesktop-width: 1200px;
+
+/* **** helper variable **** */
+$hamburgerIconSize: 25px;
+$spacing: 60px;
+$mobileSpacing: 16px;
+$mainHeaderSize: 90px;
+$mainFooterSize: 165px;
+
+$backdropTrasitionSpeed: 400ms;
