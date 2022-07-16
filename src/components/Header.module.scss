@@ -1,0 +1,18 @@
+@use "../scss/abstracts/" as *;
+
+.mainHeader {
+  @include flex(column, space-between);
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-height: $mainHeaderSize;
+  padding: $mediumSpacing $largeSpacing;
+  background-color: $secondaryColor;
+  color: $text-color;
+  box-shadow: $secondBoxShadow;
+  z-index: 10;
+
+  @include tablet {
+    @include flex(row, unset, center);
+  }
+}

@@ -1,0 +1,97 @@
+@use "./abstracts/" as *;
+@import url(../assets/fonts/css/roboto.css);
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+input,
+button,
+select {
+  color: inherit;
+  font: inherit;
+}
+
+h1 {
+  font: italic normal 300 $fontSizeHeadlineLarge $fontFamily;
+  line-height: $lineHeightBodyLarge;
+}
+h2 {
+  font: italic normal 300 $fontSizeHeadlineMedium $fontFamily;
+  line-height: $lineHeightBodyLarge;
+}
+h3 {
+  font: normal normal medium $fontSizeHeadlineSmall $fontFamily;
+  line-height: $lineHeightBodySmall;
+}
+
+//general styles
+body {
+  /* Add some padding on document's body to prevent the content
+    to go underneath the header */
+  padding-top: $mainHeaderSize;
+
+  background-color: $bg;
+  color: $text-color;
+  font: normal normal 300 $fontSizeBodyMedium $fontFamily;
+  line-height: $lineHeightBodyMedium;
+  letter-spacing: 0px;
+  overflow-x: hidden;
+}
+
+//$-------- scrollbar styles
+::-webkit-scrollbar {
+  display: none;
+
+  @include tablet {
+    display: unset;
+    width: 0.5rem;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background: $secondaryColor;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $primaryColor;
+  border-radius: 100vw;
+}
+
+// Backdrop (Contextmenu) transitions
+.slide-in-left-enter {
+  transform: translateX(-100%);
+}
+.slide-in-left-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all ease $backdropTrasitionSpeed;
+}
+.slide-in-left-exit {
+  transform: translateX(0%);
+  opacity: 1;
+}
+.slide-in-left-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all ease $backdropTrasitionSpeed;
+}
