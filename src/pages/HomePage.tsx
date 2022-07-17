@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import LoadingSpinner from "../components/LoadingSpinner";
 import { Paging } from "../components/Paging";
@@ -11,28 +11,35 @@ import classes from "./HomePage.module.scss";
 
 export const HomePage = () => {
   const { sendRequest, status, error, data } = useFetch<ISWAPIResponse>();
-  const { searchPhrase } = useContext(UiContext);
+  const { searchPhrase, pageNumber } = useContext(UiContext);
+  const [pagesCount, setPagesCount] = useState<number>(1);
 
   useEffect(() => {
     sendRequest(
-      `${process.env.REACT_APP_BACKEND_BASE_URL}/people/?search=${searchPhrase}`,
+      `${process.env.REACT_APP_BACKEND_BASE_URL}/people/?search=${searchPhrase}&page=${pageNumber}`,
       {
         method: "GET",
       }
     );
-  }, [searchPhrase]);
+  }, [searchPhrase, pageNumber]);
+
+  useEffect(() => {
+    if (status === "fetched" && data) {
+      setPagesCount(Math.ceil(data.count / 10));
+    }
+  }, [status]);
 
   return (
     <section className={classes.homepage}>
-      {status === "loading" && <LoadingSpinner asOverlay />}
       <React.Fragment>
         {status === "error" && error && error?.message}
+        <div className={classes.homepage__info}>
+          <p>For sorting click on the table headers</p>
+          <Paging pagesCount={pagesCount} />
+        </div>
+        {status === "loading" && <LoadingSpinner asOverlay />}
         {data && (
           <React.Fragment>
-            <div className={classes.homepage__info}>
-              <p>For sorting click on the table headers</p>
-              <Paging />
-            </div>
             <div className={classes.homepage__data}>
               <CustomTable data={data.results} />
             </div>

@@ -5,15 +5,27 @@
   position: fixed;
   inset: 0;
   width: 100%;
-  max-height: $mainHeaderSize;
+  max-height: $mainHeaderSizeLarge;
   padding: $mediumSpacing $largeSpacing;
   background-color: $secondaryColor;
   color: $text-color;
   box-shadow: $secondBoxShadow;
   z-index: 10;
 
+  & > .title {
+    @include flex(column);
+    & > p {
+      margin-left: $smallSpacing;
+    }
+
+    @include tablet {
+      @include flex(row, center, flex-end);
+    }
+  }
+
   @include tablet {
     @include flex(row, center, center);
+    max-height: $mainHeaderSize;
     & > :first-child {
       margin-right: auto;
     }
