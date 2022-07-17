@@ -37,7 +37,7 @@ export const HomePage = () => {
     if (status === "fetched" && data) {
       setPagesCount(Math.ceil(data.count / 10));
     }
-  }, [status]);
+  }, [data]);
 
   return (
     <section className={classes.homepage}>
