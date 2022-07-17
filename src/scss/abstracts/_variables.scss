@@ -6,6 +6,7 @@ $bg: $primaryColor 0% 0% no-repeat padding-box;
 $card-bgc: #f0f0f3;
 $dark-bg: #0d455d;
 $text-color: #000000;
+$text-color-disabled: #d1d1d1;
 
 /* ****Font family**** */
 $fontFamily: "Roboto", Arial, Helvetica, sans-serif;
@@ -20,8 +21,9 @@ $fontSizeBodyLarge: 35px;
 $lineHeightBodyLarge: 35px;
 //Headline font sizes
 $fontSizeHeadlineSmall: 12px;
-$fontSizeHeadlineMedium: 25px;
-$fontSizeHeadlineLarge: 37px;
+$fontSizeHeadlineMedium: 16px;
+$fontSizeHeadlineLarge: 30px;
+$fontSizeHeadlineExtraLarge: 42px;
 //Display font sizes
 $fontSizeDisplaySmall: 64px;
 //helper font sizes
@@ -54,7 +56,7 @@ $largeDesktop-width: 1200px;
 $hamburgerIconSize: 25px;
 $spacing: 60px;
 $mobileSpacing: 16px;
-$mainHeaderSize: 90px;
+$mainHeaderSize: 100px;
 $mainFooterSize: 165px;
 
 $backdropTrasitionSpeed: 400ms;

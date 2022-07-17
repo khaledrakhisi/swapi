@@ -31,12 +31,16 @@ select {
   font: inherit;
 }
 
+::placeholder {
+  color: $text-color-disabled;
+}
+
 h1 {
-  font: italic normal 300 $fontSizeHeadlineLarge $fontFamily;
+  font: italic normal 300 $fontSizeHeadlineExtraLarge $fontFamily;
   line-height: $lineHeightBodyLarge;
 }
 h2 {
-  font: italic normal 300 $fontSizeHeadlineMedium $fontFamily;
+  font: italic normal 300 $fontSizeHeadlineLarge $fontFamily;
   line-height: $lineHeightBodyLarge;
 }
 h3 {

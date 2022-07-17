@@ -1,0 +1,27 @@
+@use "../scss/abstracts/" as *;
+
+.simpleTable {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  // max-width: 480px;
+
+  & > .header {
+    font-weight: 700;
+
+    cursor: pointer;
+  }
+
+  & > div {
+    margin: 2px;
+    background: powderblue;
+    padding: 5px;
+
+    &:nth-child(3n + 2) {
+      background: lemonchiffon;
+    }
+
+    &:nth-child(3n + 3) {
+      background: palegreen;
+    }
+  }
+}

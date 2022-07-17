@@ -1,0 +1,27 @@
+@use "../scss/abstracts/" as *;
+
+.homepage {
+  @include flex(column, flex-start, flex-start);
+  width: 100vw;
+
+  &__info {
+    @include flex(column);
+    width: 100%;
+    & > :last-child {
+      margin-left: auto;
+    }
+
+    @include tablet {
+      @include flex(row, flex-start);
+    }
+  }
+
+  &__data {
+    overflow: scroll;
+    width: 100vw;
+  }
+
+  @include tablet {
+    @include flex(column, flex-start, flex-start);
+  }
+}
