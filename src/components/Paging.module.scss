@@ -1,0 +1,10 @@
+@use "../scss/abstracts/" as *;
+
+.paging {
+  @include flex();
+  font-size: $fontSizeHeadlineMedium;
+  border-radius: $smallBorderRadius;
+  box-shadow: $mainBoxShadow;
+  border: 1px solid $primaryColor;
+  min-width: 300px;
+}

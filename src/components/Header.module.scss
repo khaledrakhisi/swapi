@@ -13,6 +13,9 @@
   z-index: 10;
 
   @include tablet {
-    @include flex(row, unset, center);
+    @include flex(row, center, center);
+    & > :first-child {
+      margin-right: auto;
+    }
   }
 }

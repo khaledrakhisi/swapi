@@ -1,20 +1,36 @@
-import React, { useCallback, useContext, useRef } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { ReactComponent as MagnifierIcon } from "../assets/images/magnifier.svg";
+import { config } from "../config/config";
 import UiContext from "../context/ui-context";
+import useDebounce from "../hooks/useDebounce";
 
 import classes from "./SearchBox.module.scss";
 
 export const SearchBox = () => {
-  const { searchPhrase, setSearchPhrase } = useContext(UiContext);
+  const { setSearchPhrase } = useContext(UiContext);
+  const [value, setValue] = useState<string>("");
   const inputRef = useRef<HTMLInputElement | null>(null);
+  // A custom hook for debouncing
+  const debouncedValue = useDebounce<string>(value, config.debouncingDelay);
 
   const inputChangeHandler = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      setSearchPhrase(e.currentTarget.value);
+      setValue(e.currentTarget.value);
     },
-    [setSearchPhrase]
+    [setValue]
   );
+
+  // This use Effect is being used for debouncing sake
+  useEffect(() => {
+    setSearchPhrase(value);
+  }, [debouncedValue]);
 
   return (
     <div className={classes.searchBox}>
@@ -24,11 +40,11 @@ export const SearchBox = () => {
       />
       <input
         type="search"
-        placeholder={"search"}
+        placeholder={"search by name"}
         name="search"
         className={classes.searchBox_input}
         onChange={inputChangeHandler}
-        value={searchPhrase}
+        value={value}
         ref={inputRef}
       />
     </div>
