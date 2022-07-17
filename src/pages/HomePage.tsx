@@ -11,8 +11,18 @@ import classes from "./HomePage.module.scss";
 
 export const HomePage = () => {
   const { sendRequest, status, error, data } = useFetch<ISWAPIResponse>();
-  const { searchPhrase, pageNumber } = useContext(UiContext);
+  const { searchPhrase, pageNumber, setPageNumber } = useContext(UiContext);
   const [pagesCount, setPagesCount] = useState<number>(1);
+
+  useEffect(() => {
+    sendRequest(
+      `${process.env.REACT_APP_BACKEND_BASE_URL}/people/?search=${searchPhrase}`,
+      {
+        method: "GET",
+      }
+    );
+    setPageNumber(1);
+  }, [searchPhrase]);
 
   useEffect(() => {
     sendRequest(
@@ -21,7 +31,7 @@ export const HomePage = () => {
         method: "GET",
       }
     );
-  }, [searchPhrase, pageNumber]);
+  }, [pageNumber]);
 
   useEffect(() => {
     if (status === "fetched" && data) {
