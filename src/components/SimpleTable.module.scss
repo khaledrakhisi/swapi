@@ -3,7 +3,6 @@
 .simpleTable {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  // max-width: 480px;
 
   & > .header {
     font-weight: 700;
