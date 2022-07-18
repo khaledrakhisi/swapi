@@ -52,7 +52,7 @@ h3 {
 body {
   /* Add some padding on document's body to prevent the content
     to go underneath the header */
-  padding-top: $mainHeaderSizeLarge;
+  padding-top: $mainHeaderSize;
 
   background-color: $bg;
   color: $text-color;
@@ -60,10 +60,6 @@ body {
   line-height: $lineHeightBodyMedium;
   letter-spacing: 0px;
   overflow-x: hidden;
-
-  @include tablet {
-    padding-top: $mainHeaderSize;
-  }
 }
 
 //$-------- scrollbar styles

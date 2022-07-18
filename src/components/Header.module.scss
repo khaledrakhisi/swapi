@@ -5,7 +5,7 @@
   position: fixed;
   inset: 0;
   width: 100%;
-  max-height: $mainHeaderSizeLarge;
+  max-height: $mainHeaderSize;
   padding: $mediumSpacing $largeSpacing;
   background-color: $secondaryColor;
   color: $text-color;
@@ -15,17 +15,21 @@
   & > .title {
     @include flex(column);
     & > p {
-      margin-left: $smallSpacing;
+      display: none;
     }
 
     @include tablet {
       @include flex(row, center, flex-end);
+      & > p {
+        display: block;
+        margin-left: $smallSpacing;
+      }
     }
   }
 
   @include tablet {
     @include flex(row, center, center);
-    max-height: $mainHeaderSize;
+
     & > :first-child {
       margin-right: auto;
     }

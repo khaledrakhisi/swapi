@@ -18,6 +18,7 @@ export const Paging: React.FunctionComponent<IPagingProps> = ({
   return (
     <section className={classes.paging}>
       <Button
+        id="previous"
         outline
         onClick={() => (pageNumber > 1 ? setPageNumber(pageNumber - 1) : null)}
       >
@@ -27,6 +28,7 @@ export const Paging: React.FunctionComponent<IPagingProps> = ({
         Page {pageNumber} of {pagesCount}{" "}
       </p>
       <Button
+        id="next"
         outline
         onClick={() =>
           pageNumber < pagesCount ? setPageNumber(pageNumber + 1) : null

@@ -7,4 +7,8 @@
   box-shadow: $mainBoxShadow;
   border: 1px solid $primaryColor;
   min-width: 300px;
+  width: 100%;
+  @include tablet {
+    width: unset;
+  }
 }

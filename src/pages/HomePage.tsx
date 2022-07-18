@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import LoadingSpinner from "../components/LoadingSpinner";
 import { Paging } from "../components/Paging";
-import { CustomTable } from "../components/SimpleTable";
+import { SimpleTable } from "../components/SimpleTable";
 import UiContext from "../context/ui-context";
 import useFetch from "../hooks/useFetch";
 import { ISWAPIResponse } from "../interfaces/ISWAPIResponse";
@@ -51,7 +51,7 @@ export const HomePage = () => {
         {data && (
           <React.Fragment>
             <div className={classes.homepage__data}>
-              <CustomTable data={data.results} />
+              <SimpleTable data={data.results} />
             </div>
           </React.Fragment>
         )}

@@ -48,11 +48,6 @@ function useFetch<T = unknown>(): State<T> {
   };
 
   const [state, dispatch] = useReducer(fetchReducer, initialState);
-  // useEffect(() => {
-  // Do nothing if the url is not provided
-  // if (!url) {
-  //   return;
-  // }
 
   // eslint-disable-next-line no-undef
   const fetchData = async (url: string, options?: RequestInit) => {
@@ -92,16 +87,6 @@ function useFetch<T = unknown>(): State<T> {
       dispatch({ type: "error", payload: error as Error });
     }
   };
-
-  // void fetchData();
-
-  // Use the cleanup function for avoiding a possibly...
-  // ...state update after the component was unmounted
-  // return () => {
-  //   cancelRequest.current = true;
-  // };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [url]);
 
   return { ...state, sendRequest: fetchData };
 }

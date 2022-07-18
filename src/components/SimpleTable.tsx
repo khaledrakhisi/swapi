@@ -8,7 +8,7 @@ interface ICustomTableProps {
   data: Array<ICharacter>;
 }
 
-export const CustomTable: React.FunctionComponent<ICustomTableProps> = ({
+export const SimpleTable: React.FunctionComponent<ICustomTableProps> = ({
   data,
 }) => {
   const [sortSettings, setSortSettings] = useState<{
@@ -66,8 +66,8 @@ export const CustomTable: React.FunctionComponent<ICustomTableProps> = ({
         )
         .map((item) => (
           <React.Fragment key={item.name}>
-            <div>{item.name}</div>
-            <div>{item.height}</div>
+            <div data-testid="cell_name">{item.name}</div>
+            <div data-testid="cell_height">{item.height}</div>
             <div>{item.mass}</div>
             <div>{item.gender}</div>
             <div>{item.hair_color}</div>
