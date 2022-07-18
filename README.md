@@ -7,13 +7,13 @@ SWAPI Consumer! with caching is a simple app which demostrates how to use Typesc
 ## Description
 
 The app has following specifications:
-1 - Mobile-First
-2 - Caching enabled
-3 - Tests
-4 - Sorting
-5 - Searching
-6 - Simple solutions
-7 - without using external design systems
+- Mobile-First
+- Caching enabled
+- Tests
+- Sorting
+- Searching
+- Simple solutions
+- without using external design systems
 
 ## Getting Started
 
