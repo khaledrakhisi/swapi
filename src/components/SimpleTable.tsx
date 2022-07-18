@@ -58,12 +58,25 @@ export const SimpleTable: React.FunctionComponent<ICustomTableProps> = ({
       </div>
 
       {data
-        .sort((a, b) =>
-          a[sortSettings.sortBy as keyof ICharacter] >
-          b[sortSettings.sortBy as keyof ICharacter]
-            ? 1 * Number(sortSettings.order)
-            : -1 * Number(sortSettings.order)
-        )
+        .sort((a, b) => {
+          const keyOfInterface = sortSettings.sortBy as keyof ICharacter;
+          if (
+            sortSettings.sortBy === "height" ||
+            sortSettings.sortBy === "mass"
+          ) {
+            return (
+              (Number(a[keyOfInterface]) - Number(b[keyOfInterface])) *
+              Number(sortSettings.order)
+            );
+          }
+          // else if typeof key is string
+          if (a[keyOfInterface] > b[keyOfInterface]) {
+            return 1 * Number(sortSettings.order);
+          } else if (a[keyOfInterface] < b[keyOfInterface]) {
+            return -1 * Number(sortSettings.order);
+          }
+          return 0;
+        })
         .map((item) => (
           <React.Fragment key={item.name}>
             <div data-testid="cell_name">{item.name}</div>
@@ -71,8 +84,8 @@ export const SimpleTable: React.FunctionComponent<ICustomTableProps> = ({
             <div>{item.mass}</div>
             <div>{item.gender}</div>
             <div>{item.hair_color}</div>
-            <div>{item.eye_color}</div>
             <div>{item.skin_color}</div>
+            <div>{item.eye_color}</div>
             <div>{item.homeworld}</div>
             <div>{item.films}</div>
           </React.Fragment>

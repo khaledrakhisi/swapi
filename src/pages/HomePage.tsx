@@ -16,20 +16,17 @@ export const HomePage = () => {
 
   useEffect(() => {
     sendRequest(
-      `${process.env.REACT_APP_BACKEND_BASE_URL}/people/?search=${searchPhrase}`,
-      {
-        method: "GET",
-      }
+      `${process.env.REACT_APP_BACKEND_BASE_URL}/people/?search=${searchPhrase}`
     );
-    setPageNumber(1);
+
+    if (pageNumber > 1) {
+      setPageNumber(1);
+    }
   }, [searchPhrase]);
 
   useEffect(() => {
     sendRequest(
-      `${process.env.REACT_APP_BACKEND_BASE_URL}/people/?search=${searchPhrase}&page=${pageNumber}`,
-      {
-        method: "GET",
-      }
+      `${process.env.REACT_APP_BACKEND_BASE_URL}/people/?search=${searchPhrase}&page=${pageNumber}`
     );
   }, [pageNumber]);
 

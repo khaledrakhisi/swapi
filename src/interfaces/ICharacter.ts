@@ -2,11 +2,11 @@ export interface ICharacter {
   name: string;
   height: number;
   mass: number;
-  hair_color: string[10];
-  skin_color: string[10];
-  eye_color: string[10];
+  hair_color: string;
+  skin_color: string;
+  eye_color: string;
   birth_year: string;
-  gender: string[6];
+  gender: string;
   homeworld: string;
   films: Array<string>;
   species: Array<string>;
