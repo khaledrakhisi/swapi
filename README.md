@@ -1,12 +1,19 @@
 ## وَكَانَ فَضْلُ اللَّهِ عَلَيْكَ عَظِيمًا - 113 سورة النساء
 
-# Love Landing Page
+# SWAPI Consumer! with caching
 
-A landing page!
+SWAPI Consumer! with caching is a simple app which demostrates how to use Typescript and react for imlementing caching of api calls.
 
 ## Description
 
-Just a lovely landing page with React.js, D3, css
+The app has following specifications:
+1 - Mobile-First
+2 - Caching enabled
+3 - Tests
+4 - Sorting
+5 - Searching
+6 - Simple solutions
+7 - without using external design systems
 
 ## Getting Started
 
@@ -15,7 +22,7 @@ Just a lovely landing page with React.js, D3, css
 <div align="center">
 <a href="https://reactjs.org/" title="React"><img src="https://github.com/get-icon/geticon/raw/master/icons/react.svg" alt="React" width="64px" height="64px"></a>
 <a href="https://www.typescriptlang.org/" title="Typescript"><img src="https://github.com/get-icon/geticon/raw/master/icons/typescript-icon.svg" alt="Typescript" width="64px" height="64px"></a>
-<a href="https://material-ui.com/" title="D3"><img src="https://github.com/get-icon/geticon/raw/master/icons/d3.svg" alt="D3" width="64px" height="64px"></a>
+<a href="https://sass-lang.com/" title="SASS"><img src="https://github.com/get-icon/geticon/raw/master/icons/sass.svg" alt="SASS" width="64px" height="64px"></a>
 <a href="https://git-scm.com/" title="Git"><img src="https://github.com/get-icon/geticon/raw/master/icons/git-icon.svg" alt="Git" width="64px" height="64px"></a>
 <a href="https://yarnpkg.com/" title="Yarn"><img src="https://github.com/get-icon/geticon/raw/master/icons/yarn.svg" alt="Yarn" width="64px" height="64px"></a>
 <a href="https://eslint.org/" title="ESLint"><img src="https://github.com/get-icon/geticon/raw/master/icons/eslint.svg" alt="ESLint" width="64px" height="64px"></a>
@@ -24,10 +31,7 @@ Just a lovely landing page with React.js, D3, css
 <a href="https://code.visualstudio.com/" title="Visual Studio Code"><img src="https://github.com/get-icon/geticon/raw/master/icons/visual-studio-code.svg" alt="Visual Studio Code" width="64px" height="64px"></a>
 </div>
 
-## Overvie
-
-![App Wireframes](https://share.balsamiq.com/c/aTgeeUkwqRQaRkqzyVSQdd.png)
-Designed with [Balsamiq.com](https://balsamiq.com)
+## wireframes
 
 ## Demo
 
@@ -39,7 +43,6 @@ No live demo
 
 ![Demo snapshot #1](./public/demo1.png)
 ![Demo snapshot #2](./public/demo2.png)
-![Demo snapshot #3](./public/demo3.png)
 
 ## Styles and Design system
 

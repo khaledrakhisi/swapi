@@ -1,5 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
-import { render, waitFor } from "@testing-library/react";
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 
 import App from "../App";
 
@@ -25,13 +31,40 @@ afterEach(() => {
   global.dispatchEvent(new Event("resize"));
 });
 
-test("the App responsivness as expected", async () => {
-  // Change the viewport to 500px.
-  global.innerWidth = 500;
-  // Trigger the window resize event.
-  global.dispatchEvent(new Event("resize"));
-  const { getByText } = renderComponent();
-  await waitFor(() => getByText(/with caching/i));
+describe("App responsivness tests", () => {
+  test("the App responsivness as expected", async () => {
+    // Change the viewport to 500px.
+    global.innerWidth = 500;
+    // Trigger the window resize event.
+    global.dispatchEvent(new Event("resize"));
+    const { getByText } = renderComponent();
+    await waitFor(() => getByText(/with caching/i));
 
-  expect(getByText(/with caching/i)).toBeInTheDocument();
+    expect(getByText(/with caching/i)).toBeInTheDocument();
+  });
+});
+
+describe("App e2e tests", () => {
+  let search: HTMLElement | undefined;
+  beforeEach(() => {
+    const { getByRole } = render(<MockApp />);
+    search = getByRole("searchbox");
+  });
+  afterEach(cleanup);
+
+  it("Should render a searchbox as expected", () => {
+    expect(search).toBeInTheDocument();
+  });
+
+  it("Should fetch real data as expected", async () => {
+    await waitFor(
+      () => {
+        const divs = screen.getAllByTestId("cell_name");
+        expect(divs.length).toBe(10);
+      },
+      {
+        timeout: 8000,
+      }
+    );
+  }, 10000);
 });

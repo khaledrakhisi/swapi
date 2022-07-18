@@ -68,11 +68,15 @@ function useFetch<T = unknown>(): State<T> {
         throw new Error(response.statusText);
       }
       if (response.ok && response.status !== 200) {
-        // console.log(response.status);
-        throw new Error("302 error happend. Maybe you forgat .json");
+        throw new Error("302 error happend. Maybe you forgot .json");
       }
 
       const data = (await response.json()) as T;
+
+      /***
+       *
+       * Caching
+       */
       cache.current[url] = data;
       if (cancelRequest.current) {
         return;
