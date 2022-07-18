@@ -50,12 +50,8 @@ export const SimpleTable: React.FunctionComponent<ICustomTableProps> = ({
       <div className={classes.header} onClick={() => reSort("eye_color")}>
         Eye Color
       </div>
-      <div className={classes.header} onClick={() => reSort("homeworld")}>
-        Homeworld
-      </div>
-      <div className={classes.header} onClick={() => reSort("films")}>
-        Films
-      </div>
+      <div>Homeworld</div>
+      <div>Films</div>
 
       {data
         .sort((a, b) => {

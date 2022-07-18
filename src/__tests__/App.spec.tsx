@@ -1,11 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
 
 import App from "../App";
 
