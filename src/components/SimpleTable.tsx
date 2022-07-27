@@ -56,10 +56,7 @@ export const SimpleTable: React.FunctionComponent<ICustomTableProps> = ({
       {data
         .sort((a, b) => {
           const keyOfInterface = sortSettings.sortBy as keyof ICharacter;
-          if (
-            sortSettings.sortBy === "height" ||
-            sortSettings.sortBy === "mass"
-          ) {
+          if (keyOfInterface === "height" || keyOfInterface === "mass") {
             return (
               (Number(a[keyOfInterface]) - Number(b[keyOfInterface])) *
               Number(sortSettings.order)
