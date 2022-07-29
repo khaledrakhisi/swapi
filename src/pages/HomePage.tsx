@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { Paging } from "../components/Paging";
 import { SimpleTable } from "../components/SimpleTable";
-import UiContext from "../context/ui-context";
+import { UiContext } from "../context/ui-context";
 import useFetch from "../hooks/useFetch";
 import { ISWAPIResponse } from "../interfaces/ISWAPIResponse";
 

@@ -7,14 +7,12 @@ export type TCharacterContext = {
   setCharacters: (characters: Array<ICharacter>) => void;
 };
 
-export const CharactersContext = React.createContext<TCharacterContext | null>(
-  null
-);
+const CharactersContext = React.createContext<TCharacterContext | null>(null);
 
 interface ICharactersProviderProps {
   children?: React.ReactNode;
 }
-const CharactersContextProvider: React.FunctionComponent<
+export const CharactersContextProvider: React.FunctionComponent<
   ICharactersProviderProps
 > = ({ children }) => {
   const [characters, setCharacters] = React.useState<Array<ICharacter>>([]);
@@ -30,5 +28,3 @@ const CharactersContextProvider: React.FunctionComponent<
     </CharactersContext.Provider>
   );
 };
-
-export default CharactersContextProvider;

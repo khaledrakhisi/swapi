@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-import CharactersContextProvider from "./context/character-context";
+import { CharactersContextProvider } from "./context/character-context";
 import { UiContextProvider } from "./context/ui-context";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";

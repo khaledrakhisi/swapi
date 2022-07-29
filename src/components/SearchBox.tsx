@@ -8,7 +8,7 @@ import React, {
 
 import { ReactComponent as MagnifierIcon } from "../assets/images/magnifier.svg";
 import { config } from "../config/config";
-import UiContext from "../context/ui-context";
+import { UiContext } from "../context/ui-context";
 import useDebounce from "../hooks/useDebounce";
 
 import classes from "./SearchBox.module.scss";

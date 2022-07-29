@@ -7,7 +7,7 @@ type TUiContext = {
   setPageNumber: (newPageNumber: number) => void;
 };
 
-const UiContext = React.createContext<TUiContext>({
+export const UiContext = React.createContext<TUiContext>({
   searchPhrase: "",
   setSearchPhrase: (newPhrase: string) => {},
   pageNumber: 1,
@@ -34,5 +34,3 @@ export const UiContextProvider: React.FunctionComponent<
     <UiContext.Provider value={contextValue}>{children}</UiContext.Provider>
   );
 };
-
-export default UiContext;

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import UiContext from "../context/ui-context";
+import { UiContext } from "../context/ui-context";
 
 import { Button } from "./Button";
 
