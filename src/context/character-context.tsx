@@ -2,12 +2,15 @@ import React from "react";
 
 import { ICharacter } from "../interfaces/ICharacter";
 
-export type TCharacterContext = {
+type TCharacterContext = {
   characters: Array<ICharacter>;
   setCharacters: (characters: Array<ICharacter>) => void;
 };
 
-const CharactersContext = React.createContext<TCharacterContext | null>(null);
+export const CharactersContext = React.createContext<TCharacterContext>({
+  characters: [],
+  setCharacters: (characters: Array<ICharacter>) => {},
+});
 
 interface ICharactersProviderProps {
   children?: React.ReactNode;
