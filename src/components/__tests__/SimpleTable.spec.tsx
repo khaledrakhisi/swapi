@@ -1,6 +1,6 @@
 import { cleanup, render, screen } from "@testing-library/react";
 
-import CharactersContextProvider from "../../context/character-context";
+import { CharactersContextProvider } from "../../context/character-context";
 import { MOCK_DATA } from "../../data/mock-data";
 import { SimpleTable } from "../SimpleTable";
 

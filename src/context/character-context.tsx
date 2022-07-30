@@ -9,7 +9,7 @@ type TCharacterContext = {
 
 export const CharactersContext = React.createContext<TCharacterContext>({
   characters: [],
-  setCharacters: (characters: Array<ICharacter>) => {},
+  setCharacters: () => {},
 });
 
 interface ICharactersProviderProps {

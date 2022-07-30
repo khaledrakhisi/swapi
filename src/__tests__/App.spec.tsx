@@ -2,12 +2,15 @@ import { BrowserRouter } from "react-router-dom";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 
 import App from "../App";
+import { CharactersContextProvider } from "../context/character-context";
 
 const MockApp = () => {
   window.scrollTo = jest.fn();
   return (
     <BrowserRouter>
-      <App />
+      <CharactersContextProvider>
+        <App />
+      </CharactersContextProvider>
     </BrowserRouter>
   );
 };
