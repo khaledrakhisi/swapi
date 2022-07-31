@@ -24,7 +24,7 @@ function useFetch<T = unknown>(): State<T> {
   const cache = useRef<Cache<T>>({});
 
   // Used to prevent state update if the component is unmounted
-  const cancelRequest = useRef<boolean>(false);
+  // const cancelRequest = useRef<boolean>(false);
 
   const initialState: State<T> = {
     error: undefined,
@@ -78,15 +78,15 @@ function useFetch<T = unknown>(): State<T> {
        * Caching
        */
       cache.current[url] = data;
-      if (cancelRequest.current) {
-        return;
-      }
+      // if (cancelRequest.current) {
+      //   return;
+      // }
 
       dispatch({ type: "fetched", payload: data });
     } catch (error) {
-      if (cancelRequest.current) {
-        return;
-      }
+      // if (cancelRequest.current) {
+      //   return;
+      // }
 
       dispatch({ type: "error", payload: error as Error });
     }
