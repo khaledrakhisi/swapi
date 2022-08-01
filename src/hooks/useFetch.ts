@@ -1,4 +1,4 @@
-import { useReducer, useRef } from "react";
+import { useCallback, useReducer, useRef } from "react";
 
 interface State<T> {
   data?: T;
@@ -22,9 +22,6 @@ type Action<T> =
 
 function useFetch<T = unknown>(): State<T> {
   const cache = useRef<Cache<T>>({});
-
-  // Used to prevent state update if the component is unmounted
-  // const cancelRequest = useRef<boolean>(false);
 
   const initialState: State<T> = {
     error: undefined,
@@ -50,9 +47,8 @@ function useFetch<T = unknown>(): State<T> {
   const [state, dispatch] = useReducer(fetchReducer, initialState);
 
   // eslint-disable-next-line no-undef
-  const fetchData = async (url: string, options?: RequestInit) => {
+  const fetchData = useCallback(async (url: string, options?: RequestInit) => {
     dispatch({ type: "loading" });
-
     /**
      *
      * Caching implemented here
@@ -63,7 +59,9 @@ function useFetch<T = unknown>(): State<T> {
     }
 
     try {
-      const response = await fetch(url, options);
+      const response = await fetch(url, {
+        ...options,
+      });
       if (!response.ok) {
         throw new Error(response.statusText);
       }
@@ -78,19 +76,12 @@ function useFetch<T = unknown>(): State<T> {
        * Caching
        */
       cache.current[url] = data;
-      // if (cancelRequest.current) {
-      //   return;
-      // }
 
       dispatch({ type: "fetched", payload: data });
     } catch (error) {
-      // if (cancelRequest.current) {
-      //   return;
-      // }
-
       dispatch({ type: "error", payload: error as Error });
     }
-  };
+  }, []);
 
   return { ...state, sendRequest: fetchData };
 }
