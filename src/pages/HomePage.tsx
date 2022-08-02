@@ -24,7 +24,7 @@ export const HomePage = () => {
     if (pageNumber > 1) {
       setPageNumber(1);
     }
-  }, [searchPhrase]);
+  }, [searchPhrase, sendRequest, setPageNumber]);
 
   useEffect(() => {
     sendRequest(
